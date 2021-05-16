@@ -12,15 +12,17 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DeliveryCardTest {
 
+    public String getPlanningDate(int days) {
+        return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+    }
+
     @Test
     void shouldCorrectForm1() {
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Москва");
 
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(3);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
+        String date = getPlanningDate(3);
         $("[data-test-id='date'] input").setValue(date);
 
         $("[data-test-id='name'] input").setValue("Иванов-Петров Иван");
@@ -36,9 +38,7 @@ public class DeliveryCardTest {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Рим");
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(3);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
+        String date = getPlanningDate(3);
         $("[data-test-id='date'] input").setValue(date);
 
         $("[data-test-id='name'] input").setValue("Иванов-Петров Иван");
@@ -53,9 +53,7 @@ public class DeliveryCardTest {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Москва");
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(1);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
+        String date = getPlanningDate(1);
         $("[data-test-id='date'] input").setValue(date);
 
         $("[data-test-id='name'] input").setValue("Иванов-Петров Иван");
@@ -71,9 +69,7 @@ public class DeliveryCardTest {
         $("[data-test-id='city'] input").setValue("Москва");
 
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(3);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
+        String date = getPlanningDate(3);
         $("[data-test-id='date'] input").setValue(date);
 
         $("[data-test-id='name'] input").setValue("Ivanov-Petrov Ivan");
@@ -89,9 +85,7 @@ public class DeliveryCardTest {
         $("[data-test-id='city'] input").setValue("Москва");
 
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(3);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
+        String date = getPlanningDate(3);
         $("[data-test-id='date'] input").setValue(date);
 
         $("[data-test-id='name'] input").setValue("Иванов-Петров Иван");
@@ -107,9 +101,7 @@ public class DeliveryCardTest {
         $("[data-test-id='city'] input").setValue("Москва");
 
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(3);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
+        String date = getPlanningDate(3);
         $("[data-test-id='date'] input").setValue(date);
 
         $("[data-test-id='name'] input").setValue("Иванов-Петров Иван");
@@ -130,9 +122,7 @@ public class DeliveryCardTest {
     void shouldTestEmptyCity() {
         open("http://localhost:9999/");
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(3);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
+        String date = getPlanningDate(3);
         $("[data-test-id='date'] input").setValue(date);
 
         $("[data-test-id='name'] input").setValue("Иванов-Петров Иван");
@@ -160,9 +150,7 @@ public class DeliveryCardTest {
         $("[data-test-id='city'] input").setValue("Москва");
 
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(3);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
+        String date = getPlanningDate(3);
         $("[data-test-id='date'] input").setValue(date);
 
         $("[data-test-id='phone'] input").setValue("+77777777777");
@@ -177,9 +165,7 @@ public class DeliveryCardTest {
         $("[data-test-id='city'] input").setValue("Москва");
 
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(3);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
+        String date = getPlanningDate(3);
         $("[data-test-id='date'] input").setValue(date);
 
         $("[data-test-id='name'] input").setValue("Иванов-Петров Иван");
