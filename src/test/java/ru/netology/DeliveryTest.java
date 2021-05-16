@@ -88,7 +88,7 @@ public class DeliveryTest {
     void shouldNotAcceptWrongDateTest() {
         $("[placeholder='Город']").setValue("Москва");
         $("[placeholder='Дата встречи']").sendKeys(Keys.chord(Keys.SHIFT, Keys.UP), Keys.DELETE);
-        $("[placeholder='Дата встречи']").setValue("20.03.2020");
+        $("[placeholder='Дата встречи']").setValue("20.05.2020");
         $("[name='name']").setValue("Иванов-Петров Иван");
         $("[name='phone']").setValue("+77777777777");
         $(".checkbox__box").click();
