@@ -13,26 +13,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class DeliveryCardTest {
 
     @Test
-    void shouldCorrectForm() {
-        open("http://localhost:9999");
-        $("[data-test-id='city'] input").setValue("Москва");
-
-        $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        LocalDate dateOfDelivery = LocalDate.now().plusDays(3);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        String date = formatter.format(dateOfDelivery);
-        $("[data-test-id='date'] input").setValue(date);
-
-        $("[data-test-id='name'] input").setValue("Иванов-Петров Иван");
-        $("[data-test-id='phone'] input").setValue("+77777777777");
-        $("[data-test-id='agreement']").click();
-        $$("button").find(exactText("Забронировать")).click();
-        $(byText("Успешно!")).waitUntil(visible, 15000);
-        $(byText("Встреча успешно забронирована на"));
-        $(byText(date));
-    }
-
-    @Test
     void shouldCorrectForm1() {
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Москва");
@@ -118,7 +98,7 @@ public class DeliveryCardTest {
         $("[data-test-id='phone'] input").setValue("777777777777");
         $("[data-test-id='agreement']").click();
         $$("button").find(exactText("Забронировать")).click();
-        $("[data-test-id=phone].input_invalid .input__sub").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +77777777777."));
+        $("[data-test-id=phone].input_invalid .input__sub").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
     @Test
